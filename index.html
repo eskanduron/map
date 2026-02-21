@@ -22,8 +22,8 @@ body {
 
 .spot {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 7px;
+  height: 7px;
   background: red;
   border-radius: 50%;
   cursor: pointer;
@@ -54,7 +54,7 @@ body {
   <img src="--_Lossea_--.png" class="map-image">
 
   <!-- Clickable spots -->
-  <div class="spot" style="top:51%; left:59%;"
+  <div class="spot" style="top:53%; left:58%;"
        data-title="Vycar"
        data-description="The seat of power in the reclaimed world, Vycar itself is an timeworn land ruled by young masters. Conquered quickly during the War of the Ones due to its lords’ apathy, hunger for control, or claims that their kingdoms were destined to lead, Vycar was only able to avoid the destruction suffered by Lon due to the aid of Eayre and their holdout against Malfactus. Now united once more under the mysterious sage wisdom of the Boy-King Viko, their pact is a shaky one, with old customs and superstitions creeping though the green forests and hills of Vycar."></div>
 
@@ -91,6 +91,14 @@ spots.forEach(spot => {
 
     popup.classList.remove('hidden');
   });
+});
+  
+  // Close popup when clicking anywhere else
+document.addEventListener('click', function(e) {
+  // If the click is NOT on a spot or inside the popup
+  if (!e.target.classList.contains('spot') && !popup.contains(e.target)) {
+    popup.classList.add('hidden');
+  }
 });
 </script>
 
